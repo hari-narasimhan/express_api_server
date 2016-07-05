@@ -12,11 +12,11 @@ The API specification can be found [here](./API_SPEC.md)
 Create an in memory store using the array and implement the following API endpoints
 as express routes
 
-Create a new job - adds the job to the in memory store
-Update a job - We can only update a job which is in created status
-Delete a job - can delete only a job that has in created status
-Get a job by id - retrieves a job based on the id provided
-Get all jobs with a limit parameter provided
+* Create a new job - adds the job to the in memory store
+* Update a job - We can only update a job which is in created status
+* Delete a job - can delete only a job that has in created status
+* Get a job by id - retrieves a job based on the id provided
+* Get all jobs with a limit parameter provided
 
 
 For all these exercises use appropriate HTTP response status codes
@@ -56,4 +56,4 @@ Folder Structure
     });
 
 ### Tips
-  use lodash to perform CRUD operations on the array 
+  use lodash to perform CRUD operations on the array
