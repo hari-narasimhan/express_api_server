@@ -25,5 +25,8 @@
     "express": "^4.14.0",
     "lodash": "^4.13.1",
     "moment": "^2.14.1"
+  },
+  "devDependencies": {
+    "frisby": "^0.8.5"
   }
 }
