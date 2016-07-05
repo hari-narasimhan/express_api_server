@@ -82,7 +82,7 @@ function updateJob(job) {
 
   // Replace item at index using native splice
 
-  arr.splice(index, 1, updatedJob);
+  jobs.splice(index, 1, updatedJob);
   return updatedJob;
 
 }
