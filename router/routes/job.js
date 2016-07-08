@@ -1,5 +1,6 @@
 var express = require('express');
 var JobService = require('../../services/job');
+var _ = require('lodash');
 
 var router = express.Router({ mergeParams: true });
 
@@ -17,7 +18,10 @@ router.get('/', function (req, res) {
 router.get('/:jobId', function (req, res) {
   var jobId = req.params.jobId;
   JobService.findById(jobId, function (err, job) {
-    if (err) return res.status(400).send(err);
+    if (err) {
+      var status = _.find(err.errors, { code: 1002 }) ? 404 : 400;
+      return res.status(status).send(err);
+    }
 
     return res.status(200).send(job);
   });

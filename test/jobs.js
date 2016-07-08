@@ -8,6 +8,7 @@ require('../index');
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 var should = chai.should();
+var mongoose = require('mongoose');
 
 var server = require('../app');
 
@@ -32,6 +33,16 @@ describe('Jobs ', function () {
       .get('/api/v1/jobs')
       .end(function (err, res) {
         res.should.have.status(200);
+        done();
+      });
+  });
+
+  it('Should return 404 if job is not found', function (done) {
+    var id = mongoose.Types.ObjectId();
+    chai.request(server)
+      .get('/api/v1/jobs/' + id)
+      .end(function (err, res) {
+        res.should.have.status(404);
         done();
       });
   });
