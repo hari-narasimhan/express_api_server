@@ -15,7 +15,7 @@ var Job = require('../models/job');
 
 chai.use(chaiHttp);
 
-describe('Create a job', function () {
+describe('Jobs ', function () {
   Job.collection.drop();
   it('Should successfully create a new job', function (done) {
     chai.request(server)
@@ -23,6 +23,15 @@ describe('Create a job', function () {
       .send({ name: 'jb_dbm', params: { clientId: 555121 }, })
       .end(function (err, res) {
         res.should.have.status(201);
+        done();
+      });
+  });
+
+  it('Should list all jobs', function (done) {
+    chai.request(server)
+      .get('/api/v1/jobs')
+      .end(function (err, res) {
+        res.should.have.status(200);
         done();
       });
   });
